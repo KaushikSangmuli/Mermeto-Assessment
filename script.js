@@ -3,6 +3,7 @@ const productName= document.querySelector("#product-name")
 const price = document.querySelector(".price")
 const originalPrice =document.querySelector("#compared-price")
 const colorBoxes = document.querySelectorAll(".box")
+const colorBorder = document.querySelectorAll(".color-border")
 const discription = document.querySelector("#discription-text")
 
 let bgColor;
@@ -27,8 +28,20 @@ fetch(" https://cdn.shopify.com/s/files/1/0564/3685/0790/files/singleProduct.jso
     originalPrice.innerText = `$${dscntPrice}`
 
     colorBoxes.forEach((box, index)=>{
-        const color = Object.values(data.options[0].values[index])
+        let color = Object.values(data.options[0].values[index])
         box.style.backgroundColor = color
+    })
+    colorBorder.forEach((border,index)=>{
+
+        border.addEventListener("click", ()=>{
+
+            colorBorder.forEach((border)=>{
+                border.style.borderColor = ""
+            })
+            let color = Object.values(data.options[0].values[index])
+            border.style.borderColor = color
+        })
+     
     })
 
     colorBoxes.forEach((box, index)=>{
@@ -43,7 +56,6 @@ fetch(" https://cdn.shopify.com/s/files/1/0564/3685/0790/files/singleProduct.jso
     const starting = dscrpt.indexOf(">") + ">".length
     const ending = dscrpt.indexOf("</p>")
     const dsc = dscrpt.substring(starting , ending)
-
     discription.innerText = dsc
 
 })
