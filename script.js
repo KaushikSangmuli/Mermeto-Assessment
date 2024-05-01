@@ -14,7 +14,7 @@ fetch(" https://cdn.shopify.com/s/files/1/0564/3685/0790/files/singleProduct.jso
 .then((data)=>{
     return data.json()
 }).then((data)=>{
-    console.log(data)
+    
     return data.product
 }).then((data)=>{
     vendor.innerText = data.vendor
@@ -22,7 +22,7 @@ fetch(" https://cdn.shopify.com/s/files/1/0564/3685/0790/files/singleProduct.jso
     
     let finalPrice = parseFloat(data.price.replace("$", ""))
     let dscntPrice = parseFloat(data.compare_at_price.replace("$",""))
-    console.log(finalPrice ,dscntPrice)
+   
     price.innerHTML = `<span id="product-price"> $${finalPrice}</span> <span id="prcnt-discount">
     ${100-((finalPrice/dscntPrice)*100).toFixed(0)}%off</span>`;
     originalPrice.innerText = `$${dscntPrice}`
@@ -47,7 +47,7 @@ fetch(" https://cdn.shopify.com/s/files/1/0564/3685/0790/files/singleProduct.jso
     colorBoxes.forEach((box, index)=>{
         box.addEventListener("click",()=>{
             bgColor = Object.keys(data.options[0].values[index])
-            console.log(bgColor)
+            
             isColorSelected =true
         })
     })
@@ -70,7 +70,7 @@ colorBoxes.forEach((box) => {
         });
         // Show the image inside the clicked box
         img.classList.remove("hidden");
-        console.log("box is clicked", box, img);
+       
         isColorSelected =true
 
     });
@@ -95,14 +95,13 @@ minus.addEventListener("click",()=>{
     if (count>1){
         count--
         noOFItems.innerText = count
-        console.log("minus clicked")
+   
     }
 })
 
 plus.addEventListener("click", ()=>{
     count++
     noOFItems.innerText = count
-    console.log("plus clicked")
    
 })
 
@@ -116,6 +115,6 @@ addToCart.addEventListener("click",()=>{
         result.innerText = ` select the Size for product`
     } else if( isColorSelected && isSizeSelected ){
         result.innerText = ` ${productName.innerText} with Color ${bgColor} and Size ${selectedSize}  added to cart`
-        console.log("hello")
+     
     } 
 })
