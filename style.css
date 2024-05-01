@@ -155,7 +155,7 @@ color: rgba(185, 187, 191, 1);
     background-color: rgba(58, 73, 128, 1);
 
 }
-.cart button :hover{
+.cart  :hover{
     cursor: pointer;
 }
 
