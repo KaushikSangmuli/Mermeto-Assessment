@@ -108,5 +108,6 @@ addToCart.addEventListener("click",()=>{
         result.style.color="red"
     } else if( isColorSelected && isSizeSelected ){
         result.innerText = ` ${productName.innerText} with Color ${bgColor} and Size ${selectedSize}  added to cart`
+        result.style.color="black"
     } 
 })
