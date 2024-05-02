@@ -56,7 +56,7 @@ fetch(" https://cdn.shopify.com/s/files/1/0564/3685/0790/files/singleProduct.jso
     discription.innerText = dsc
 
 })
-let reqcolor;
+
 colorBoxes.forEach((box) => {
     const img = box.querySelector(".tick-mark");
     box.addEventListener("click", () => {
